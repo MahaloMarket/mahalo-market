@@ -33,7 +33,7 @@ const PRODUCTS = [
   // Ukuleles
   { id: "B093JZ2X47", name: "Vangoa 23\" Concert Ukulele Kit (Mahogany)", category: "ukulele", note: "Complete beginner kit with a mahogany concert uke.", added: "2026-11-24", pick: true },
   { id: "B0D9QL9M2L", name: "LEKATO 23\" Mahogany Concert Ukulele Bundle", category: "ukulele", note: "Gig bag, strap, tuner and picks included.", added: "2026-11-24" },
-  { id: "B00G69DPYW", name: "Tom 23\" Concert Ukulele Beginner Bundle", category: "ukulele", note: "Sapele body, gig bag and tuner.", added: "2026-11-24" },
+  { id: "B00G69DPYW", name: "Concert Ukulele 23\" Beginner Bundle, Sapele Body", category: "ukulele", note: "Sapele body, gig bag and tuner.", added: "2026-11-24" },
   { id: "B08B1K1RFP", name: "ADM 23\" Mahogany Concert Ukulele Beginner Kit", category: "ukulele", note: "Aquila strings and a gig bag.", added: "2026-11-24" },
 
   // Kona coffee & treats
@@ -42,25 +42,24 @@ const PRODUCTS = [
   { id: "B0FFDMDH5Z", name: "Keokea Coffee Co. 100% Kona Whole Bean, 8 oz", category: "coffee", note: "A smaller bag to try Kona.", added: "2026-11-24" },
   { id: "B00FAZY0D8", name: "Hawaiian Host Dark Chocolate Macadamia Nuts", category: "coffee", note: "Whole, buttery macadamias in dark chocolate.", added: "2026-11-24" },
   { id: "B003VDB79Q", name: "Hawaiian Host Milk Chocolate Macadamia Nuts, 14 oz", category: "coffee", note: "The original chocolate-covered macadamia.", added: "2026-11-24" },
-  { id: "B0083DMG3U", name: "Mauna Loa Milk Chocolate Covered Macadamia Nuts", category: "coffee", note: "Mountain-style island treat.", added: "2026-11-24" },
+  { id: "B0083DMG3U", name: "Mountains Milk Chocolate Covered Macadamia Nuts", category: "coffee", note: "Mountain-style island treat.", added: "2026-11-24" },
 
   // Aloha wear
-  { id: "B0BRXPMTTV", name: "HISDERN Men's Hawaiian Short Sleeve Aloha Shirt", category: "aloha", note: "Relaxed tropical print for beach days.", added: "2026-11-24" },
+  { id: "B0BRXPMTTV", name: "Men's Hawaiian Short Sleeve Aloha Shirt", category: "aloha", note: "Relaxed tropical print for beach days.", added: "2026-11-24" },
   { id: "B079VWDL8M", name: "INGEAR Men's Stretch Hawaiian Shirt, Quick Dry", category: "aloha", note: "Stretch, quick-dry and machine washable.", added: "2026-11-24", pick: true },
   { id: "B01M7YVMCF", name: "Made in Hawaii 100% Cotton Men's Aloha Shirt", category: "aloha", note: "Hand made in Hawaii, with a matching pocket.", added: "2026-11-24" },
 
   // Koa & plumeria jewelry
-  { id: "B008F1QQE0", name: "Koa Wood Plumeria Mini Stud Earrings", category: "jewelry", note: "Small, light koa plumeria studs.", added: "2026-11-24" },
-  { id: "B0CKWZ3FMC", name: "Zero Gravity Hawaii Koa & Bone Plumeria Bracelet", category: "jewelry", note: "Hand-carved, fully adjustable bracelet or anklet.", added: "2026-11-24", pick: true },
+  { id: "B0CKWZ3FMC", name: "Hawaiian Koa Wood & Bone Plumeria Bracelet or Anklet", category: "jewelry", note: "Hand-carved, fully adjustable bracelet or anklet.", added: "2026-11-24", pick: true },
   { id: "B008F1QFYG", name: "Koa Wood Plumeria & Petroglyph Honu Bracelet", category: "jewelry", note: "Adjustable bracelet with a carved honu (sea turtle).", added: "2026-11-24" },
 
   // Tropical home
   { id: "B0CW32RF83", name: "Fjfz Tiki & Monstera Throw Pillow Covers (Set of 4)", category: "home", note: "Aloha-themed covers for porch and sofa.", added: "2026-11-24" },
   { id: "B0H37ZTQFJ", name: "Tiki Mask Outdoor Pillow Covers, Water Resistant", category: "home", note: "Hibiscus and tiki pattern, made for outdoors.", added: "2026-11-24" },
-  { id: "B0GYRJ418J", name: "LXXTK Hawaiian Hibiscus Velvet Pillow Covers", category: "home", note: "Soft velvet hibiscus and palm leaf print.", added: "2026-11-24" },
+  { id: "B0H336RMFF", name: "Tiki Bar Throw Pillow Covers, Hawaiian Hibiscus (Set of 2)", category: "home", note: "Retro hibiscus and ocean print for the sofa.", added: "2026-11-24" },
 
   // Books & photos
-  { id: "166078929X", name: "Hawaii Coffee Table Picture Book", category: "books", note: "Photo tour of the Hawaiian islands.", added: "2026-11-24" },
-  { id: "B0DY88FSK9", name: "Hawaii: A Coffee Table Book of Stunning Photography", category: "books", note: "Over 160 photos of all six major islands.", added: "2026-11-24", pick: true },
+  { id: "166078929X", name: "Hawaii: Coffee Table Photography Travel Picture Book", category: "books", note: "Photo tour of the Hawaiian islands.", added: "2026-11-24", pick: true },
+  { id: "B0DQDCMX1X", name: "Kauai Photobook: Coffee Table Book", category: "books", note: "Stunning images of Kauai's cities and landscapes.", added: "2026-11-24" },
   { id: "1777062144", name: "Hawaii: Photo Book (Wanderlust) by Elyse Booth", category: "books", note: "Big Island, Maui and Kauai in hardcover.", added: "2026-11-24" }
 ];

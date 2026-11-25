@@ -13,26 +13,18 @@
   };
 
   const catById = Object.fromEntries(CATEGORIES.map((c) => [c.id, c]));
-  let activeCat = "all";
   let query = "";
 
-  // Header, footer and labels
+  // Text labels
   $("#storeName").textContent = STORE.name;
   $("#footerName").textContent = STORE.name;
   $("#storeTagline").textContent = STORE.tagline;
   $("#disclosure").textContent = STORE.disclosure;
   $("#updated").textContent = new Date(STORE.updated + "T00:00:00").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
-  document.title = `${STORE.name} | Hawaii favorites we love`;
+  document.title = `${STORE.name} | Hawaii favorites, hand-picked`;
 
-  // Category nav (header) and chips (filters)
-  $("#catNav").innerHTML = CATEGORIES.map((c) => `<a href="#cat-${c.id}">${esc(c.icon)} ${esc(c.name)}</a>`).join("");
-
-  function renderChips() {
-    const all = [{ id: "all", name: "All" }, ...CATEGORIES];
-    $("#chips").innerHTML = all.map((c) =>
-      `<button class="chip" type="button" data-cat="${c.id}" aria-pressed="${c.id === activeCat}">${esc(c.name)}</button>`
-    ).join("");
-  }
+  // Header nav
+  $("#catNav").innerHTML = CATEGORIES.map((c) => `<a href="#cat-${c.id}">${esc(c.name)}</a>`).join("");
 
   function card(p) {
     const c = catById[p.category];
@@ -42,24 +34,31 @@
     ].join("");
     return `
       <article class="card">
-        <div class="card-art" style="background: linear-gradient(135deg, ${c.color}, #0B3C49)">
+        <div class="card-art" style="background-image: url('${esc(c.image)}')" role="img" aria-label="${esc(c.name)}">
           ${badges}
-          <span aria-hidden="true">${esc(c.icon)}</span>
         </div>
         <div class="card-body">
-          <span class="card-cat" style="color:${c.color}">${esc(c.name)}</span>
-          <h3>${esc(p.name)}</h3>
+          <span class="card-cat">${esc(c.name)}</span>
+          <h4>${esc(p.name)}</h4>
           <p>${esc(p.note)}</p>
-          <a class="btn" href="${amazonLink(p.id)}" target="_blank" rel="sponsored nofollow noopener">View on Amazon</a>
+          <a class="btn-buy" href="${amazonLink(p.id)}" target="_blank" rel="sponsored nofollow noopener">View on Amazon</a>
         </div>
       </article>`;
   }
 
   function matches(p) {
-    if (activeCat !== "all" && p.category !== activeCat) return false;
     if (!query) return true;
     const hay = `${p.name} ${p.note} ${catById[p.category].name}`.toLowerCase();
     return query.split(/\s+/).every((w) => hay.includes(w));
+  }
+
+  function renderTiles() {
+    $("#tiles").innerHTML = CATEGORIES.map((c) => {
+      const n = PRODUCTS.filter((p) => p.category === c.id).length;
+      return `<a class="tile" href="#cat-${c.id}" style="background-image: url('${esc(c.image)}')">
+        <span class="tile-body"><strong>${esc(c.name)}</strong><span>${n} picks</span></span>
+      </a>`;
+    }).join("");
   }
 
   function render() {
@@ -67,22 +66,19 @@
     $("#count").textContent = `${list.length} product${list.length === 1 ? "" : "s"}`;
     $("#empty").hidden = list.length > 0;
 
-    // Editor's picks: shown on the "All" view with no search
-    const showPicks = activeCat === "all" && !query;
+    const showPicks = !query;
     $("#picks").innerHTML = showPicks
-      ? `<h2 class="picks-title">Editor's picks</h2>` + list.filter((p) => p.pick).map(card).join("")
+      ? `<h3 class="picks-title">Editor's picks</h3>` + list.filter((p) => p.pick).map(card).join("")
       : "";
 
-    // Grouped by category (All view), or a single category block
-    const groups = (activeCat === "all" ? CATEGORIES : CATEGORIES.filter((c) => c.id === activeCat));
-    $("#grid").innerHTML = groups.map((c) => {
+    $("#grid").innerHTML = CATEGORIES.map((c) => {
       const items = list.filter((p) => p.category === c.id);
       if (!items.length) return "";
       return `
-        <div class="cat-block" id="cat-${c.id}" style="grid-column: 1 / -1">
+        <div class="cat-block" id="cat-${c.id}">
           <div class="cat-banner" style="background-image: url('${esc(c.image)}')">
             <div class="cat-banner-text">
-              <h2>${esc(c.icon)} ${esc(c.name)}</h2>
+              <h3>${esc(c.name)}</h3>
               <p>${esc(c.blurb)}</p>
             </div>
           </div>
@@ -91,19 +87,22 @@
     }).join("");
   }
 
-  $("#chips").addEventListener("click", (e) => {
-    const btn = e.target.closest("button[data-cat]");
-    if (!btn) return;
-    activeCat = btn.dataset.cat;
-    renderChips();
-    render();
-  });
-
   $("#q").addEventListener("input", (e) => {
     query = e.target.value.trim().toLowerCase();
     render();
   });
 
-  renderChips();
+  renderTiles();
   render();
+
+  // Category links from pins or the header: scroll to the section once it exists.
+  const jump = () => {
+    const id = location.hash.replace("#", "");
+    if (id.startsWith("cat-")) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "auto", block: "start" });
+    }
+  };
+  window.addEventListener("hashchange", jump);
+  jump();
 })();
