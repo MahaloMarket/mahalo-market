@@ -11,50 +11,40 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="topbar">Hand-picked Hawaii favorites · New finds added every week</div>
+  <div class="announce">Hand-picked Hawaii favorites · New finds added every week</div>
 
   <header class="site-header">
-    <div class="wrap header-row">
+    <div class="wrap header-inner">
+      <nav class="cat-nav left" aria-label="Shop categories">
+        <a href="#shop">Shop all</a>
+        <a href="#cat-music">Music</a>
+        <a href="#cat-coffee">Coffee</a>
+      </nav>
       <a class="brand" href="#top" aria-label="Mahalo Market home">
         <span class="brand-name" id="storeName">Mahalo Market</span>
-        <span class="brand-tag" id="storeTagline">Hawaii, curated for you</span>
       </a>
-      <nav class="cat-nav" id="catNav" aria-label="Categories"></nav>
+      <nav class="cat-nav right" aria-label="More categories">
+        <a href="#cat-aloha">Aloha Wear</a>
+        <a href="#cat-jewelry">Jewelry</a>
+        <a href="#cat-books">Books</a>
+      </nav>
     </div>
+    <nav class="cat-nav-full" id="catNav" aria-label="All categories"></nav>
   </header>
 
   <section class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Aloha, and welcome</p>
-        <h1>Bring the islands home.</h1>
-        <p class="lede">Slack key guitar, real Kona coffee, ukuleles to learn on, aloha wear and koa jewelry, picked by people who love Hawaii.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#shop">Shop the collection</a>
-          <a class="btn btn-ghost" href="#cat-music">Hawaiian music</a>
-        </div>
-        <ul class="trust">
-          <li>Hand-picked, not mass-listed</li>
-          <li>Checkout securely on Amazon</li>
-          <li>Refreshed every week</li>
-        </ul>
-      </div>
-      <figure class="hero-photo">
-        <img src="hero.jpg" alt="A woman dancing in a red and white dress on a Hawaiian beach" width="2000" height="1500">
-        <figcaption>
-          <strong>This week's pick</strong>
-          <span>Slack key guitar classics</span>
-        </figcaption>
-      </figure>
+    <img class="hero-img" src="hero.jpg" alt="A woman in a red and white dress dancing on a Hawaiian beach" width="2000" height="1125">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-kicker" id="storeTagline">Hawaii, curated for you</p>
+      <h1>Bring the islands home</h1>
+      <p class="hero-lede">Slack key guitar, real Kona coffee, ukuleles to learn on, aloha wear and koa jewelry.</p>
+      <a class="btn btn-solid" href="#shop">Shop the collection</a>
     </div>
   </section>
 
-  <section class="categories wrap" id="shop" aria-label="Shop by category">
-    <div class="section-head">
-      <h2>Shop by category</h2>
-      <p class="count" id="count"></p>
-    </div>
-    <div class="chips" id="chips" aria-label="Filter by category"></div>
+  <section class="wrap collections" id="shop" aria-label="Shop by category">
+    <h2 class="section-title">Shop by category</h2>
     <div class="tiles" id="tiles"></div>
   </section>
 
@@ -62,6 +52,7 @@
     <div class="search-row">
       <label class="sr-only" for="q">Search the shop</label>
       <input id="q" type="search" placeholder="Search ukulele, Kona, aloha shirt, koa…" autocomplete="off">
+      <p class="count" id="count"></p>
     </div>
 
     <section id="picks" class="picks" aria-label="Editor picks"></section>
