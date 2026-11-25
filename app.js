@@ -32,16 +32,22 @@
       p.pick ? `<span class="badge">Editor's pick</span>` : "",
       isNew(p.added) ? `<span class="badge new">New</span>` : ""
     ].join("");
+    const link = amazonLink(p.id);
+    // Real product photo when one is set in products.js (p.img); category photo otherwise.
+    const artHtml = p.img
+      ? `<img class="card-photo" src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">`
+      : `<div class="card-fallback" style="background-image: url('${esc(c.image)}')" role="img" aria-label="${esc(c.name)}"></div>`;
     return `
       <article class="card">
-        <div class="card-art" style="background-image: url('${esc(c.image)}')" role="img" aria-label="${esc(c.name)}">
+        <a class="card-art" href="${link}" target="_blank" rel="sponsored nofollow noopener" aria-label="View ${esc(p.name)} on Amazon">
+          ${artHtml}
           ${badges}
-        </div>
+        </a>
         <div class="card-body">
           <span class="card-cat">${esc(c.name)}</span>
-          <h4>${esc(p.name)}</h4>
+          <h4><a href="${link}" target="_blank" rel="sponsored nofollow noopener">${esc(p.name)}</a></h4>
           <p>${esc(p.note)}</p>
-          <a class="btn-buy" href="${amazonLink(p.id)}" target="_blank" rel="sponsored nofollow noopener">View on Amazon</a>
+          <a class="btn-buy" href="${link}" target="_blank" rel="sponsored nofollow noopener">View on Amazon</a>
         </div>
       </article>`;
   }

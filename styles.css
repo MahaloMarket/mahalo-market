@@ -125,7 +125,13 @@ img { display: block; max-width: 100%; }
 /* Product grid: clean cards */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 30px 18px; }
 .card { display: flex; flex-direction: column; background: var(--paper); }
-.card-art { position: relative; aspect-ratio: 4 / 5; background-size: cover; background-position: center; background-color: var(--cream); }
+.card-art { position: relative; display: block; aspect-ratio: 4 / 5; background: #fff; overflow: hidden; border: 1px solid var(--line); }
+.card-photo { width: 100%; height: 100%; object-fit: contain; padding: 14px; transition: transform .3s ease; }
+.card-art:hover .card-photo { transform: scale(1.03); }
+.card-fallback { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform .3s ease; }
+.card-art:hover .card-fallback { transform: scale(1.03); }
+.card h4 a { color: inherit; text-decoration: none; }
+.card h4 a:hover { text-decoration: underline; }
 .badge {
   position: absolute; top: 12px; left: 12px; z-index: 1; background: var(--paper); color: var(--ink);
   font-size: .66rem; font-weight: 800; padding: 5px 9px; letter-spacing: 1.2px; text-transform: uppercase;
@@ -135,12 +141,14 @@ img { display: block; max-width: 100%; }
 .card-cat { font-size: .68rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); font-weight: 700; }
 .card h4 { margin: 0; font-size: .98rem; line-height: 1.35; font-weight: 600; }
 .card p { margin: 0; color: var(--muted); font-size: .88rem; }
+/* Amazon's own yellow "Add to Cart" button colors */
 .card .btn-buy {
-  margin-top: 12px; display: block; text-align: center; text-decoration: none; border: 2px solid var(--ink);
-  color: var(--ink); font-weight: 800; font-size: .78rem; letter-spacing: 1.4px; text-transform: uppercase; padding: 12px;
-  transition: background .15s, color .15s;
+  margin-top: 12px; display: block; text-align: center; text-decoration: none;
+  background: #FFD814; border: 1px solid #FCD200; border-radius: 20px; box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+  color: #0F1111; font-size: .9rem; padding: 9px 12px; transition: background .15s;
 }
-.card .btn-buy:hover { background: var(--ink); color: #fff; }
+.card .btn-buy:hover { background: #F7CA00; border-color: #F2C200; }
+.card .btn-buy:active { background: #F0B800; }
 .card .btn-buy:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 .empty { text-align: center; color: var(--muted); padding: 40px 0; }
 
