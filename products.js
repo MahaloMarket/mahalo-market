@@ -30,16 +30,8 @@ const PRODUCTS = [
   { id: "B0007R8FS0", name: "Masters of Hawaiian Slack Key Guitar, Vol. 1", category: "music", note: "Ledward Kaapana, George Kahumoku Jr. and friends.", added: "2026-11-24" },
   { id: "B0012YN6K4", name: "Treasures of Hawaiian Slack Key Guitar", category: "music", note: "Live recordings from the Maui concert series.", added: "2026-11-24" },
 
-  // Ukuleles
-  { id: "B093JZ2X47", name: "Vangoa 23\" Concert Ukulele Kit (Mahogany)", category: "ukulele", note: "Complete beginner kit with a mahogany concert uke.", added: "2026-11-24", pick: true },
-  { id: "B0D9QL9M2L", name: "LEKATO 23\" Mahogany Concert Ukulele Bundle", category: "ukulele", note: "Gig bag, strap, tuner and picks included.", added: "2026-11-24" },
-  { id: "B00G69DPYW", name: "Concert Ukulele 23\" Beginner Bundle, Sapele Body", category: "ukulele", note: "Sapele body, gig bag and tuner.", added: "2026-11-24" },
-  { id: "B08B1K1RFP", name: "ADM 23\" Mahogany Concert Ukulele Beginner Kit", category: "ukulele", note: "Aquila strings and a gig bag.", added: "2026-11-24" },
-
   // Kona coffee & treats
   { id: "B0016BPJAI", name: "Royal Kona Coffee, 100% Kona Whole Bean, Medium Roast", category: "coffee", note: "Smooth, full-bodied Kona. A classic gift.", added: "2026-11-24", pick: true },
-  { id: "B0DMMP3Q99", name: "Keokea Coffee Co. 100% Kona Whole Bean, 1 lb", category: "coffee", note: "Grown and packaged on the Big Island.", added: "2026-11-24" },
-  { id: "B0FFDMDH5Z", name: "Keokea Coffee Co. 100% Kona Whole Bean, 8 oz", category: "coffee", note: "A smaller bag to try Kona.", added: "2026-11-24" },
   { id: "B00FAZY0D8", name: "Hawaiian Host Dark Chocolate Macadamia Nuts", category: "coffee", note: "Whole, buttery macadamias in dark chocolate.", added: "2026-11-24" },
   { id: "B003VDB79Q", name: "Hawaiian Host Milk Chocolate Macadamia Nuts, 14 oz", category: "coffee", note: "The original chocolate-covered macadamia.", added: "2026-11-24" },
   { id: "B0083DMG3U", name: "Mountains Milk Chocolate Covered Macadamia Nuts", category: "coffee", note: "Mountain-style island treat.", added: "2026-11-24" },
@@ -51,7 +43,6 @@ const PRODUCTS = [
 
   // Koa & plumeria jewelry
   { id: "B0CKWZ3FMC", name: "Hawaiian Koa Wood & Bone Plumeria Bracelet or Anklet", category: "jewelry", note: "Hand-carved, fully adjustable bracelet or anklet.", added: "2026-11-24", pick: true },
-  { id: "B008F1QFYG", name: "Koa Wood Plumeria & Petroglyph Honu Bracelet", category: "jewelry", note: "Adjustable bracelet with a carved honu (sea turtle).", added: "2026-11-24" },
 
   // Tropical home
   { id: "B0CW32RF83", name: "Fjfz Tiki & Monstera Throw Pillow Covers (Set of 4)", category: "home", note: "Aloha-themed covers for porch and sofa.", added: "2026-11-24" },

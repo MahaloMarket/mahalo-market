@@ -24,7 +24,9 @@
   document.title = `${STORE.name} | Hawaii favorites, hand-picked`;
 
   // Header nav
-  $("#catNav").innerHTML = CATEGORIES.map((c) => `<a href="#cat-${c.id}">${esc(c.name)}</a>`).join("");
+  // Only show categories that have at least one product in stock (see products.js).
+  const ACTIVE = CATEGORIES.filter((c) => PRODUCTS.some((p) => p.category === c.id));
+  $("#catNav").innerHTML = ACTIVE.map((c) => `<a href="#cat-${c.id}">${esc(c.name)}</a>`).join("");
 
   function card(p) {
     const c = catById[p.category];
@@ -59,7 +61,7 @@
   }
 
   function renderTiles() {
-    $("#tiles").innerHTML = CATEGORIES.map((c) => {
+    $("#tiles").innerHTML = ACTIVE.map((c) => {
       const n = PRODUCTS.filter((p) => p.category === c.id).length;
       return `<a class="tile" href="#cat-${c.id}" style="background-image: url('${esc(c.image)}')">
         <span class="tile-body"><strong>${esc(c.name)}</strong><span>${n} picks</span></span>
